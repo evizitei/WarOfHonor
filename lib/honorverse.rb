@@ -1,0 +1,8 @@
+module Honorverse
+  WIDTH = 1020
+  HEIGHT = 573
+  ANGLE_INCREMENT = 1.0
+  ENTROPY = 0.999
+  ACCEL_FACTOR = 0.0005
+  BRAKE_FACTOR = 0.0003
+end

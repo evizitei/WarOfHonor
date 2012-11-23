@@ -14,6 +14,7 @@ module Honorverse
       turn_right if @game.button_down? Gosu::KbRight
       accelerate if @game.button_down? Gosu::KbUp
       brake if @game.button_down? Gosu::KbDown
+      explode if @game.button_down? Gosu::KbE
       move
     end
   end

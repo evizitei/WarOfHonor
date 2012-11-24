@@ -61,7 +61,28 @@ module Honorverse
       end
     end
 
-    describe '#is_violated_by' do
+    describe '#is_violated_by?' do
+      let(:violator) { Cruiser.new window, 'media/stub.png' }
+
+      it 'is true if point 1 violates our space' do
+        cruiser.place(100, 100)
+        cruiser.set_rotation(0)
+        cruiser.set_dimensions(100, 25)
+        violator.place(124, 199)
+        violator.set_rotation(0)
+        violator.set_dimensions(100, 25)
+        cruiser.is_violated_by?(violator).should be_true
+      end
+
+      it 'is false if they do not cross' do
+        cruiser.place(100, 100)
+        cruiser.set_rotation(0)
+        cruiser.set_dimensions(100, 25)
+        violator.place(125, 200)
+        violator.set_rotation(0)
+        violator.set_dimensions(100, 25)
+        cruiser.is_violated_by?(violator).should be_false
+      end
     end
 
   end

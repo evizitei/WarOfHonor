@@ -25,6 +25,7 @@ module Honorverse
 
     def update
       @ships.each { |ship| ship.execute_orders }
+      check_for_collisions
     end
 
     def clear
@@ -37,7 +38,7 @@ module Honorverse
     end
 
     def check_for_collisions
-      @ships.combination(2).each do |ship1, ship2| 
+      @ships.select{|s| !s.destroyed }.combination(2).each do |ship1, ship2| 
         if collision_between?( ship1, ship2 )
           ship1.explode
           ship2.explode

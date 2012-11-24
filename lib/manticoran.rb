@@ -7,6 +7,8 @@ module Honorverse
     def initialize(window)
       @game = window
       super window, 'media/cruiser.png'
+      @width = 6
+      @length = 42
     end
 
     def execute_orders

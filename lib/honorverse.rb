@@ -5,4 +5,5 @@ module Honorverse
   ENTROPY = 0.999
   ACCEL_FACTOR = 0.0005
   BRAKE_FACTOR = 0.0003
+  DEBUG_COLLISIONS = true
 end

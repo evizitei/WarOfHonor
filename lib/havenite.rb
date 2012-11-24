@@ -5,6 +5,8 @@ module Honorverse
     def initialize(window)
       super window, 'media/havenite.png'
       @manuever_in_progress = nil
+      @length = 61
+      @width = 8
     end
 
     MANUEVERS = [:hard_right, :full_accel, :slight_left, :kill_velocity]

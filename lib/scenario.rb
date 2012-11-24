@@ -19,13 +19,34 @@ module Honorverse
       @ships << ship
     end
 
+    def add_ships(*ships)
+      @ships += ships
+    end
+
     def update
       @ships.each { |ship| ship.execute_orders }
+    end
+
+    def clear
+      @ships = []
     end
 
     def draw
       @ships.each { |ship| ship.draw }
       @background.draw 0, 0, 0
+    end
+
+    def check_for_collisions
+      @ships.combination(2).each do |ship1, ship2| 
+        if collision_between?( ship1, ship2 )
+          ship1.explode
+          ship2.explode
+        end
+      end
+    end
+
+    def collision_between?(ship_one, ship_two)
+      ship_one.is_violated_by?(ship_two) || ship_two.is_violated_by?(ship_one)
     end
   end
 end

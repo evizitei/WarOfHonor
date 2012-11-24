@@ -61,5 +61,8 @@ module Honorverse
       end
     end
 
+    describe '#is_violated_by' do
+    end
+
   end
 end
